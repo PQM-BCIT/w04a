@@ -1,0 +1,16 @@
+﻿@model List<string>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Alan.cshtml";
+}
+
+<h2>List</h2>
+<ul>
+    @foreach (var p in this.Model)
+    {
+        <li>@p</li>
+    }
+</ul>
+
+@Html.Partial("_HelloPartial")

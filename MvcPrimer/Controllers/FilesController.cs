@@ -20,8 +20,20 @@ namespace MvcPrimer.Controllers
             DirectoryInfo dir = new DirectoryInfo(Server.MapPath("/files"));
             List<string> files = new List<string>();
             files = Directory.GetFiles(dir.ToString(), "*.txt").ToList();
+            for (int i = 0; i < files.Count; i++ )
+            {
+                files[i] = Path.GetFileName(files[i]);
+            }
 
             return View(files);
+        }
+
+        public ActionResult Details(string filename)
+        {
+            DirectoryInfo dir = new DirectoryInfo(Server.MapPath("/files"));
+            string content = System.IO.File.ReadAllText(dir.ToString() + "/" + filename);
+
+            return View(model: content);
         }
     }
 }

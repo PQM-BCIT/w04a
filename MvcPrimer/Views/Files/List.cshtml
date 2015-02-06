@@ -9,7 +9,7 @@
 <ul>
     @foreach (var p in this.Model)
     {
-        <li>@p</li>
+        <li>@Html.ActionLink(@p, "Details", new { @filename = @p }, null)</li>
     }
 </ul>
 
